@@ -1,0 +1,5 @@
+source 'https://rubygems.org'
+gem 'pry'
+gem 'pry-debugger'
+gem 'rmagick'
+gem 'awesome_print'
