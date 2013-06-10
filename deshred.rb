@@ -1,15 +1,14 @@
+#$LOAD_PATH.unshift('lib/*')
 require 'rubygems'
 require 'bundler/setup'
 require 'rmagick'
 require 'pry'
 
-pixels = []
+require_relative 'lib/deshredder'
 
 file = '/Users/james/Pictures/background0155.jpg'
 
-img = Magick::Image::read(file).first
+deshredder = Deshredder.new
 
-img.each_pixel do |pixel, c, r|
-  binding.pry
-  pixels.push(pixel)
-end
+deshredder.from_file(file)
+
