@@ -37,7 +37,6 @@ class SourceImage
 
   def sections
     x_start = 0
-    puts "#{@image_magick_image.columns}x#{@image_magick_image.rows}"
 
     sections = []
     while x_start < @image_magick_image.columns do
@@ -47,16 +46,12 @@ class SourceImage
       section = Section.new(from: x_start,
                             to: x_end)
 
-      puts "section #{section.from},#{section.to}"
       x_start = x_end
       sections << section
     end
 
     sections.shuffle
   end
-
-  #number_of_sections = rand(10..30)
-  #sections = (1..number_of_sections).map do |section_number|
 
   def pixel_color(x,y)
     @image_magick_image.pixel_color(x,y)
@@ -79,11 +74,3 @@ class DestinationImage
     @image_magick_image.write(file)
   end
 end
-
-#offset_start = Random.rand(source.columns)
-#offset_width = 100 #Random.rand(offset_start..source.columns) - offset_start
-#(0..img.columns).each
-#pixels = img.get_pixels(0,0,img.width, img.height)
-#binding.pry
-##img.each_pixel do |pixel, c, r|
-##pixels[c][r] = pixel
